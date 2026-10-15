@@ -3,6 +3,7 @@
 This branch holds evidence only and is not meant to be merged. It contains a real `mcporter serve --stdio` run, before and after the fix:
 
 - **`proof/serve-before-after.png`:** screenshot of the run, rendered from `proof/run.log`.
+- **`proof/serve-447-demo.gif` and `proof/demo.cast`:** a live terminal recording (asciinema; GIF rendered with agg) of `proof/demo.sh` running the real CLI before and after the fix.
 - **`proof/run.log`:** raw output for three bridges on `main` (627965f) and on the fix branch (d7c4ad6):
   - healthy only;
   - one failing server plus one healthy server;
