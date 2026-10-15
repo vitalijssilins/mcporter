@@ -1,0 +1,27 @@
+$ mcporter serve --stdio --servers healthy   # main 627965f
+tools/list -> tools: ["healthy__ping"]
+tools/call healthy__ping -> [{"type":"text","text":"pong"}]
+bridge stderr: []
+
+$ mcporter serve --stdio --servers needs-auth,healthy   # main 627965f
+tools/list -> ERROR {"code":-32603,"message":"MCP operation failed (runtime_error); the request was not replayed."}
+bridge stderr: []
+
+$ mcporter serve --stdio --servers needs-auth   # main 627965f
+tools/list -> ERROR {"code":-32603,"message":"MCP operation failed (runtime_error); the request was not replayed."}
+bridge stderr: []
+
+$ mcporter serve --stdio --servers healthy   # fix d7c4ad6
+tools/list -> tools: ["healthy__ping"]
+tools/call healthy__ping -> [{"type":"text","text":"pong"}]
+bridge stderr: []
+
+$ mcporter serve --stdio --servers needs-auth,healthy   # fix d7c4ad6
+tools/list -> tools: ["healthy__ping"]
+tools/call healthy__ping -> [{"type":"text","text":"pong"}]
+bridge stderr: ["[mcporter] serve: skipping tools from 'needs-auth': MCP operation failed (runtime_error); the request was not replayed."]
+
+$ mcporter serve --stdio --servers needs-auth   # fix d7c4ad6
+tools/list -> ERROR {"code":-32603,"message":"MCP operation failed (runtime_error); the request was not replayed."}
+bridge stderr: ["[mcporter] serve: skipping tools from 'needs-auth': MCP operation failed (runtime_error); the request was not replayed."]
+

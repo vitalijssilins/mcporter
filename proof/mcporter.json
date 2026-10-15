@@ -1,0 +1,4 @@
+{ "mcpServers": {
+  "healthy": { "command": "node", "args": ["<proof>/healthy-server.mjs"], "lifecycle": "keep-alive" },
+  "needs-auth": { "url": "http://127.0.0.1:47811/mcp", "auth": "oauth", "lifecycle": "keep-alive" }
+} }
