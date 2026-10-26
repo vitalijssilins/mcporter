@@ -1,0 +1,22 @@
+### main (2874448): 260 callers, each with its own environment
+caller 64 -> ok   (daemon transports: 64)
+caller 128 -> ok   (daemon transports: 128)
+caller 192 -> ok   (daemon transports: 192)
+caller 255 -> ok   (daemon transports: 255)
+caller 256 -> ok   (daemon transports: 256)
+caller 257 -> FAIL Transport capacity reached; drain unused transports with daemon stop.
+caller 258 -> FAIL Transport capacity reached; drain unused transports with daemon stop.
+first failure: caller 257; 4 of 260 failed (daemon transports: 256)
+
+### this branch (add938e): 260 callers, each with its own environment
+caller 64 -> ok   (daemon transports: 64)
+caller 128 -> ok   (daemon transports: 128)
+caller 192 -> ok   (daemon transports: 192)
+caller 255 -> ok   (daemon transports: 255)
+caller 256 -> ok   (daemon transports: 256)
+caller 257 -> ok   (daemon transports: 256)
+caller 258 -> ok   (daemon transports: 256)
+caller 259 -> ok   (daemon transports: 256)
+caller 260 -> ok   (daemon transports: 256)
+all 260 callers ok (daemon transports: 256)
+
